@@ -46,6 +46,7 @@ class MuteIPCommand extends Command {
                     $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been muted by $sender.");
                     $embed->setTitle("IP Muted");
                     $embed->setDescription("someone has been IP Muted by " . $sender);
+                    $embed->setColor(0xFFFF00);
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
@@ -56,6 +57,8 @@ class MuteIPCommand extends Command {
                         $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP muted by $sender.");
                         $embed->setTitle("IP Muted");
                         $embed->setDescription($player->getName() . " has been IP Muted by " . $sender);
+                        $embed->setColor(0xFFFF00);
+                        $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
                         $webHook->send($msg);
@@ -80,6 +83,7 @@ class MuteIPCommand extends Command {
                     $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been muted by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                     $embed->setTitle("IP Muted");
                     $embed->setDescription("someone has been IP Muted by " . $sender . " for " . $reason);
+                    $embed->setColor(0xFFFF00);
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
@@ -90,6 +94,7 @@ class MuteIPCommand extends Command {
                         $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP muted by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                         $embed->setTitle("IP Muted");
                         $embed->setDescription($player->getName() . " has been IP Muted by " . $sender . " for " . $reason);
+                        $embed->setColor(0xFFFF00);
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
                         $webHook->send($msg);

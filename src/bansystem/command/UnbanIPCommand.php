@@ -34,8 +34,9 @@ class UnbanIPCommand extends Command {
             }
             $banList->remove($args[0]);
             $sender->getServer()->broadcastMessage(TextFormat::GREEN . "Address " . TextFormat::AQUA . $args[0] . TextFormat::GREEN . " has been unbanned.");
-            $embed->setTitle("IP Unbanned);
-            $embed->setDescription("someone has been unbanned on this network!);
+            $embed->setTitle("IP Unbanned");
+            $embed->setColor(0x008000);
+            $embed->setDescription("someone has been unbanned on this network!");
             $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
             $msg->addEmbed($embed);
             $webHook->send($msg);

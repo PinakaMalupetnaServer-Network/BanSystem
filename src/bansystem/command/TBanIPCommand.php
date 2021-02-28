@@ -52,6 +52,7 @@ class TBanIPCommand extends Command {
                         $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP banned  until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $embed->setTitle("IP Temporary Ban");
                         $embed->setDescription("someone has been temporarily banned until" . $expiryToString);
+                        $embed->setColor(0xFF0000);
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
                         $webHook->send($msg);
@@ -63,6 +64,7 @@ class TBanIPCommand extends Command {
                             $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP banned until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                             $embed->setTitle("IP Temporary Ban");
                             $embed->setDescription($player->getName() . " has been temporarily banned until" . $expiryToString);
+                            $embed->setColor(0xFF0000);
                             $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                             $msg->addEmbed($embed);
                             $webHook->send($msg);
@@ -88,6 +90,7 @@ class TBanIPCommand extends Command {
                         $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP banned for " . TextFormat::AQUA . $reason . TextFormat::RED . " until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $embed->setTitle("IP Temporary Ban");
                         $embed->setDescription("someone has been temporarily banned until" . $expiryToString . " reason: " . $reason);
+                        $embed->setColor(0xFF0000);
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
                         $webHook->send($msg);
@@ -99,6 +102,7 @@ class TBanIPCommand extends Command {
                             $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP banned for " . TextFormat::AQUA . $reason . TextFormat::RED . " until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                             $embed->setTitle("IP Temporary Ban");
                             $embed->setDescription($player->getName() . " has been temporarily banned until" . $expiryToString . " reason: " . $reason);
+                            $embed->setColor(0xFF0000);
                             $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                             $msg->addEmbed($embed);
                             $webHook->send($msg);

@@ -41,6 +41,7 @@ class MuteCommand extends Command {
                     $player->sendMessage(TextFormat::RED . "You have been muted from our network\n§4Muted by: §bStaff.");
                     $embed->setTitle("Muted");
                     $embed->setDescription($player->getName . " has been muted by " . $sender . " !");
+                    $embed->setColor(0xFFFF00);
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
@@ -49,6 +50,7 @@ class MuteCommand extends Command {
                     $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been muted from our network!\n§4Muted by: §bStaff.");
                     $embed->setTitle("Muted");
                     $embed->setDescription($args[0] . " has been muted");
+                    $embed->setColor(0xFFFF00);
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
@@ -66,6 +68,7 @@ class MuteCommand extends Command {
                     $player->sendMessage(TextFormat::RED . "You have been muted from our network!\§4Muted by: §bStaff\n§5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                     $embed->setTitle("Muted");
                     $embed->setDescription($player->getName . " has been muted by " . $sender . " for " . $reason . " !");
+                    $embed->setColor(0xFFFF00);
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
@@ -74,6 +77,7 @@ class MuteCommand extends Command {
                     $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been muted from our network\n§4Muted by: §bStaff\n§5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                     $embed->setTitle("Muted");
                     $embed->setDescription($args[0] . " has been muted for " . $reason . " !");
+                    $embed->setColor(0xFFFF00);
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);

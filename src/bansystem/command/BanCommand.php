@@ -46,6 +46,7 @@ class BanCommand extends Command {
                 $embed->setTitle("Banned");
                 $embed->setDescription($playerName . " has been banned to our Network!");
                 $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                $embed->setColor(0xFF0000);
                 $msg->addEmbed($embed);
                 $webHook->send($msg);
             } else if (count($args) >= 2) {
@@ -67,6 +68,7 @@ class BanCommand extends Command {
                 $embed->setTitle("Banned");
                 $embed->setDescription($playerName . " has been banned to our Network for " . $reason);
                 $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                $embed->setColor(0xFF0000);
                 $msg->addEmbed($embed);
                 $webHook->send($msg);
             }

@@ -51,6 +51,7 @@ class TMuteIPCommand extends Command {
                         }
                         $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP muted until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $embed->setTitle("IP Temporary Mute");
+                        $embed->setColor(0xFFFF00);
                         $embed->setDescription("someone has been temporarily muted until" . $expiryToString);
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
@@ -60,6 +61,7 @@ class TMuteIPCommand extends Command {
                         $player->sendMessage(TextFormat::RED . "You have been IP muted until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP muted until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $embed->setTitle("IP Temporary Mute");
+                        $embed->setColor(0xFFFF00);
                         $embed->setDescription($player->getName() . " has been temporarily muted until" . $expiryToString);
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
@@ -81,6 +83,7 @@ class TMuteIPCommand extends Command {
                         }
                         $sender->getServer()->broadcastMessage(TextFormat::AQUA . $ip . TextFormat::RED . " has been IP muted for " . TextFormat::AQUA . $reason . TextFormat::RED . " until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $embed->setTitle("IP Temporary Mute");
+                        $embed->setColor(0xFFFF00);
                         $embed->setDescription("someone has been temporarily muted until" . $expiryToString . " reason: " . $reason);
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
@@ -90,6 +93,7 @@ class TMuteIPCommand extends Command {
                         $player->sendMessage(TextFormat::RED . "You have been IP muted for " . TextFormat::RED . $reason . TextFormat::RED . " until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP muted until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $embed->setTitle("IP Temporary Mute");
+                        $embed->setColor(0xFFFF00);
                         $embed->setDescription($player->getName() . " has been temporarily muted until" . $expiryToString . " reason: " . $reason);
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);

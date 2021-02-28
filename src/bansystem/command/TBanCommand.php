@@ -53,6 +53,7 @@ class TBanCommand extends Command {
                             . TextFormat::RED . " has been temporarily banned from our network\n§4Banned by: §bStaff §6Banned until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                     $embed->setTitle("Temporary Ban");
                     $embed->setDescription($playerName . " has been temporarily banned until" . $expiryToString);
+                    $embed->setColor(0xFF0000);
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
@@ -74,6 +75,7 @@ class TBanCommand extends Command {
                             . TextFormat::RED . " has been temporarily banned from our network\n§4Banned by: §bStaff\n§5Reason: " . TextFormat::AQUA . $banReason . TextFormat::RED . " §6Your ban expires in " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                     $embed->setTitle("Temporary Ban");
                     $embed->setDescription($playerName . " has been temporarily banned until" . $expiryToString . " reason: " . $banReason);
+                    $embed->setColor(0xFF0000);
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);

@@ -46,6 +46,7 @@ class TMuteCommand extends Command {
                         $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been temporarily muted from our network!\n§4Muted by: §bStaff\n§6until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $player->sendMessage(TextFormat::RED . "You have been temporarily muted from our network!\n§4Muted by: §bStaff\n§6until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $embed->setTitle("Temporary Mute");
+                        $embed->setColor(0xFFFF00);
                         $embed->setDescription($player->getName() . " has been temporarily muted until" . $expiryToString);
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
@@ -55,6 +56,7 @@ class TMuteCommand extends Command {
                         $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been temporarily muted from our network!\n§4Muted by: §bStaff\n§6until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $embed->setTitle("Temporary Mute");
                         $embed->setDescription($args[0] . " has been temporarily muted until" . $expiryToString);
+                        $embed->setColor(0xFFFF00);
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
                         $webHook->send($msg);
@@ -72,6 +74,7 @@ class TMuteCommand extends Command {
                         $player->sendMessage(TextFormat::RED . "You have been temporarily muted from our network!\n§4Muted by: §bStaff\n§5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . " §6until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $embed->setTitle("Temporary Mute");
                         $embed->setDescription($playerName . " has been temporarily muted until" . $expiryToString . " reason: " . $reason);
+                        $embed->setColor(0xFFFF00);
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
                         $webHook->send($msg);
@@ -80,6 +83,7 @@ class TMuteCommand extends Command {
                         $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been temporarily muted from our network!\n§4Muted by: §bStaff\n§5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . " §6until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
                         $embed->setTitle("Temporary Mute");
                         $embed->setDescription($args[0] . " has been temporarily muted until" . $expiryToString . " reason: " . $reason);
+                        $embed->setColor(0xFFFF00);
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
                         $webHook->send($msg);

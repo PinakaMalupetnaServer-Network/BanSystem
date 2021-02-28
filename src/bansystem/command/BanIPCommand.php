@@ -46,6 +46,7 @@ class BanIPCommand extends Command {
                     $embed->setTitle("IP Banned");
                     $embed->setDescription("someone has been  IP banned to our Network!");
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $embed->setColor(0xFF0000);
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
                 } else {
@@ -57,6 +58,7 @@ class BanIPCommand extends Command {
                         $embed->setTitle("IP Banned");
                         $embed->setDescription($player->getName() . " has been  IP banned to our Network!");
                         $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                        $embed->setColor(0xFF0000);
                         $msg->addEmbed($embed);
                         $webHook->send($msg);
                     } else {
@@ -81,6 +83,7 @@ class BanIPCommand extends Command {
                     $embed->setTitle("IP Banned");
                     $embed->setDescription("someone has been  IP banned to our Network!");
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $embed->setColor(0xFF0000);
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
                 } else {
@@ -91,6 +94,7 @@ class BanIPCommand extends Command {
                     $embed->setTitle("IP Banned");
                     $embed->setDescription($player->getName() . " has been  IP banned to our Network!");
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $embed->setColor(0xFF0000);
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
                     } else {
