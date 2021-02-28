@@ -9,6 +9,9 @@ use InvalidArgumentException;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
+use CortexPE\DiscordWebhookAPI\Message;
+use CortexPE\DiscordWebhookAPI\Webhook;
+use CortexPE\DiscordWebhookAPI\Embed;
 
 class TBanCommand extends Command {
     
@@ -20,6 +23,8 @@ class TBanCommand extends Command {
     }
     
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
+        $webHook = new Webhook("YOUR WEBHOOK URL");
+        $embed = new Embed();
         if ($this->testPermissionSilent($sender)) {
             if (count($args) <= 1) {
                 $sender->sendMessage(Translation::translateParams("usage", array($this)));
@@ -46,7 +51,11 @@ class TBanCommand extends Command {
                     }
                     $sender->getServer()->broadcastMessage(TextFormat::AQUA . $playerName
                             . TextFormat::RED . " has been temporarily banned from our network\n§4Banned by: §bStaff §6Banned until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
-                    
+                    $embed->setTitle("Temporary Ban");
+                    $embed->setDescription($playerName . " has been temporarily banned until" . $expiryToString);
+                    $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $msg->addEmbed($embed);
+                    $webHook->send($msg);
                 } else if (count($args) >= 3) {
                     $banReason = "";
                     for ($i = 2; $i < count($args); $i++) {
@@ -63,6 +72,11 @@ class TBanCommand extends Command {
                     }
                     $sender->getServer()->broadcastMessage(TextFormat::AQUA . $playerName
                             . TextFormat::RED . " has been temporarily banned from our network\n§4Banned by: §bStaff\n§5Reason: " . TextFormat::AQUA . $banReason . TextFormat::RED . " §6Your ban expires in " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
+                    $embed->setTitle("Temporary Ban");
+                    $embed->setDescription($playerName . " has been temporarily banned until" . $expiryToString . " reason: " . $banReason);
+                    $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $msg->addEmbed($embed);
+                    $webHook->send($msg);
                 }
             } catch (InvalidArgumentException $e) {
                 $sender->sendMessage(TextFormat::RED . $e->getMessage());
