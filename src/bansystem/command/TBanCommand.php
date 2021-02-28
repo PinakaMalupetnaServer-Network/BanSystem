@@ -23,7 +23,7 @@ class TBanCommand extends Command {
     }
     
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
-        $webHook = new Webhook("YOUR WEBHOOK URL");
+        $webHook = new Webhook("https://discord.com/api/webhooks/815613927907131403/nspwpciJLJQB5ItQpzvDCKDSF7ywde6s_0XixfuXhOE_4xMdckVBVHFuTUNLH1El-BF9");
         $embed = new Embed();
         if ($this->testPermissionSilent($sender)) {
             if (count($args) <= 1) {
