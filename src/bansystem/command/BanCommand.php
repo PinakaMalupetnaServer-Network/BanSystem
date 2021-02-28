@@ -6,6 +6,9 @@ use bansystem\translation\Translation;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
+use CortexPE\DiscordWebhookAPI\Message;
+use CortexPE\DiscordWebhookAPI\Webhook;
+use CortexPE\DiscordWebhookAPI\Embed;
 
 class BanCommand extends Command {
     
@@ -17,6 +20,8 @@ class BanCommand extends Command {
     }
     
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
+      $webHook = new Webhook("YOUR WEBHOOK URL");
+      $embed = new Embed();
         if ($this->testPermissionSilent($sender)) {
             if (count($args) <= 0) {
                 $sender->sendMessage(Translation::translateParams("usage", array($this)));
@@ -38,6 +43,11 @@ class BanCommand extends Command {
                     $banList->addBan($args[0], null, null, $sender->getName());
                 }
                 $sender->getServer()->broadcastMessage(TextFormat::AQUA . $playerName . TextFormat::RED . " has been suspended from our network!\n§4Banned by: §bStaff");
+                $embed->setTitle("Banned");
+                $embed->setDescription($playerName . " has been banned to our Network!");
+                $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                $msg->addEmbed($embed);
+                $webHook->send($msg);
             } else if (count($args) >= 2) {
                 $reason = "";
                 for ($i = 1; $i < count($args); $i++) {
@@ -54,6 +64,11 @@ class BanCommand extends Command {
                 }
                 $sender->getServer()->broadcastMessage(TextFormat::AQUA . $playerName . TextFormat::RED . " has been suspended from our network!\n§4Banned by: §bStaff\n§5Reason: "
                         . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                $embed->setTitle("Banned");
+                $embed->setDescription($playerName . " has been banned to our Network for " . $reason);
+                $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                $msg->addEmbed($embed);
+                $webHook->send($msg);
             }
         } else {
             $sender->sendMessage(Translation::translate("noPermission"));
