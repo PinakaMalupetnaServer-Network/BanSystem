@@ -7,6 +7,9 @@ use bansystem\translation\Translation;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
+use CortexPE\DiscordWebhookAPI\Message;
+use CortexPE\DiscordWebhookAPI\Webhook;
+use CortexPE\DiscordWebhookAPI\Embed;
 
 class MuteIPCommand extends Command {
     
@@ -18,6 +21,8 @@ class MuteIPCommand extends Command {
     }
     
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
+        $webHook = new Webhook("YOUR WEBHOOK URL");
+        $embed = new Embed();
         if ($this->testPermission($sender)) {
             if (count($args) <= 0) {
                 $sender->sendMessage(Translation::translateParams("usage", array($this)));
@@ -39,11 +44,21 @@ class MuteIPCommand extends Command {
                         }
                     }
                     $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been muted by $sender.");
+                    $embed->setTitle("IP Muted");
+                    $embed->setDescription("someone has been IP Muted by " . $sender);
+                    $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $msg->addEmbed($embed);
+                    $webHook->send($msg);
                 } else {
                     if ($player != null) {
                         $muteList->addBan($player->getAddress(), null, null, $sender->getName());
                         $player->sendMessage(TextFormat::RED . "You have been IP muted by $sender.");
                         $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP muted by $sender.");
+                        $embed->setTitle("IP Muted");
+                        $embed->setDescription($player->getName() . " has been IP Muted by " . $sender);
+                        $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                        $msg->addEmbed($embed);
+                        $webHook->send($msg);
                     } else {
                         $sender->sendMessage(Translation::translate("playerNotFound"));
                     }
@@ -63,11 +78,21 @@ class MuteIPCommand extends Command {
                         }
                     }
                     $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been muted by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $embed->setTitle("IP Muted");
+                    $embed->setDescription("someone has been IP Muted by " . $sender . " for " . $reason);
+                    $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $msg->addEmbed($embed);
+                    $webHook->send($msg);
                 } else {
                     if ($player != null) {
                         $muteList->addBan($player->getAddress(), $reason, null, $sender->getName());
                         $player->sendMessage(TextFormat::RED . "You have been IP muted for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                         $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP muted by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                        $embed->setTitle("IP Muted");
+                        $embed->setDescription($player->getName() . " has been IP Muted by " . $sender . " for " . $reason);
+                        $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                        $msg->addEmbed($embed);
+                        $webHook->send($msg);
                     } else {
                         $sender->sendMessage(Translation::translate("playerNotFound"));
                     }
