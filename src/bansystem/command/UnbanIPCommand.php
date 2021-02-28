@@ -6,6 +6,9 @@ use bansystem\translation\Translation;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
+use CortexPE\DiscordWebhookAPI\Message;
+use CortexPE\DiscordWebhookAPI\Webhook;
+use CortexPE\DiscordWebhookAPI\Embed;
 
 class UnbanIPCommand extends Command {
     
@@ -18,6 +21,8 @@ class UnbanIPCommand extends Command {
     
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
         if ($this->testPermissionSilent($sender)) {
+            $webHook = new Webhook("YOUR WEBHOOK URL");
+            $embed = new Embed();
             if (count($args) <= 0) {
                 $sender->sendMessage(Translation::translateParams("usage", array($this)));
                 return false;
@@ -29,6 +34,11 @@ class UnbanIPCommand extends Command {
             }
             $banList->remove($args[0]);
             $sender->getServer()->broadcastMessage(TextFormat::GREEN . "Address " . TextFormat::AQUA . $args[0] . TextFormat::GREEN . " has been unbanned.");
+            $embed->setTitle("IP Unbanned);
+            $embed->setDescription("someone has been unbanned on this network!);
+            $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+            $msg->addEmbed($embed);
+            $webHook->send($msg);
         } else {
             $sender->sendMessage(Translation::translate("noPermission"));
         }
