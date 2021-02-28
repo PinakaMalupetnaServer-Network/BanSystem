@@ -1,6 +1,6 @@
 name: BanSystem
 main: bansystem\BanSystem
-version: 4.0.0-PMnS
+version: 5.0.0-PMnS
 author: VMPE Development Team, princepines
 api: [3.0.0, 3.15.0, 4.0.0]
 description: A ban system for Pocketmine only, running Latest PMMP-Builds.
