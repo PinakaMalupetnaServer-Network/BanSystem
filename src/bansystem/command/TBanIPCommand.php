@@ -9,6 +9,9 @@ use InvalidArgumentException;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
+use CortexPE\DiscordWebhookAPI\Message;
+use CortexPE\DiscordWebhookAPI\Webhook;
+use CortexPE\DiscordWebhookAPI\Embed;
 
 class TBanIPCommand extends Command {
     
@@ -20,6 +23,8 @@ class TBanIPCommand extends Command {
     }
     
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
+        $webHook = new Webhook("YOUR WEBHOOK URL");
+        $embed = new Embed();
         if ($this->testPermissionSilent($sender)) {
             if (count($args) <= 1) {
                 $sender->sendMessage(Translation::translateParams("usage", array($this)));
@@ -45,12 +50,22 @@ class TBanIPCommand extends Command {
                             }
                         }
                         $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP banned  until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
+                        $embed->setTitle("IP Temporary Ban");
+                        $embed->setDescription("someone has been temporarily banned until" . $expiryToString);
+                        $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                        $msg->addEmbed($embed);
+                        $webHook->send($msg);
                     } else {
                         if ($player != null) {
                             $player->kick(TextFormat::RED . "You have been temporarily IP banned,"
                                         . " your IP ban expires in " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".", false);
                             $banList->addBan($player->getName(), null, $expiry->getDate(), $sender->getName());
                             $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP banned until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
+                            $embed->setTitle("IP Temporary Ban");
+                            $embed->setDescription($player->getName() . " has been temporarily banned until" . $expiryToString);
+                            $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                            $msg->addEmbed($embed);
+                            $webHook->send($msg);
                         } else {
                             $sender->sendMessage(Translation::translate("playerNotFound"));
                         }
@@ -71,12 +86,22 @@ class TBanIPCommand extends Command {
                             }
                         }
                         $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP banned for " . TextFormat::AQUA . $reason . TextFormat::RED . " until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
+                        $embed->setTitle("IP Temporary Ban");
+                        $embed->setDescription("someone has been temporarily banned until" . $expiryToString . " reason: " . $reason);
+                        $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                        $msg->addEmbed($embed);
+                        $webHook->send($msg);
                     } else {
                         if ($player != null) {
                             $banList->addBan($player->getAddress(), $reason, $expiry->getDate(), $sender->getName());
                             $player->kick(TextFormat::RED . "You have been temporarily IP banned for " . TextFormat::AQUA . $reason . TextFormat::RED . ","
                                     . " your IP ban expires in " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".", false);
                             $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP banned for " . TextFormat::AQUA . $reason . TextFormat::RED . " until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
+                            $embed->setTitle("IP Temporary Ban");
+                            $embed->setDescription($player->getName() . " has been temporarily banned until" . $expiryToString . " reason: " . $reason);
+                            $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                            $msg->addEmbed($embed);
+                            $webHook->send($msg);
                         } else {
                             $sender->sendMessage(Translation::translate("playerNotFound"));
                         }
