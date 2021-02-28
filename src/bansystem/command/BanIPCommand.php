@@ -44,7 +44,7 @@ class BanIPCommand extends Command {
                     }
                     $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP banned from our network\n§4Banned by: §bStaff\n§5with no reason.");
                     $embed->setTitle("IP Banned");
-                    $embed->setDescription($ip . " has been  IP banned to our Network!");
+                    $embed->setDescription("someone has been  IP banned to our Network!");
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
@@ -79,7 +79,7 @@ class BanIPCommand extends Command {
                     }
                     $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP banned from our network\n§4Banned by: §bStaff\n§5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                     $embed->setTitle("IP Banned");
-                    $embed->setDescription($ip . " has been  IP banned to our Network!");
+                    $embed->setDescription("someone has been  IP banned to our Network!");
                     $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
