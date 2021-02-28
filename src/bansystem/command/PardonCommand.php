@@ -21,6 +21,7 @@ class PardonCommand extends Command {
     
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
         $webHook = new Webhook("https://discord.com/api/webhooks/815613927907131403/nspwpciJLJQB5ItQpzvDCKDSF7ywde6s_0XixfuXhOE_4xMdckVBVHFuTUNLH1El-BF9");
+        $msg = new Message();
         $embed = new Embed();
         if ($this->testPermissionSilent($sender)) {
             if (count($args) <= 0) {
@@ -37,7 +38,7 @@ class PardonCommand extends Command {
             $embed->setTitle("Unbanned");
             $embed->setColor(0x008000);
             $embed->setDescription($args[0] . " has been unbanned on this network!");
-            $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+            $embed->setFooter("BanSystem for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
             $msg->addEmbed($embed);
             $webHook->send($msg);
         } else {

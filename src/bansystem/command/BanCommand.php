@@ -21,6 +21,7 @@ class BanCommand extends Command {
     
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
       $webHook = new Webhook("https://discord.com/api/webhooks/815613927907131403/nspwpciJLJQB5ItQpzvDCKDSF7ywde6s_0XixfuXhOE_4xMdckVBVHFuTUNLH1El-BF9");
+      $msg = new Message();
       $embed = new Embed();
         if ($this->testPermissionSilent($sender)) {
             if (count($args) <= 0) {
@@ -45,7 +46,7 @@ class BanCommand extends Command {
                 $sender->getServer()->broadcastMessage(TextFormat::AQUA . $playerName . TextFormat::RED . " has been suspended from our network!\n§4Banned by: §bStaff");
                 $embed->setTitle("Banned");
                 $embed->setDescription($playerName . " has been banned to our Network!");
-                $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                $embed->setFooter("BanSystem for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                 $embed->setColor(0xFF0000);
                 $msg->addEmbed($embed);
                 $webHook->send($msg);
@@ -65,9 +66,9 @@ class BanCommand extends Command {
                 }
                 $sender->getServer()->broadcastMessage(TextFormat::AQUA . $playerName . TextFormat::RED . " has been suspended from our network!\n§4Banned by: §bStaff\n§5Reason: "
                         . TextFormat::AQUA . $reason . TextFormat::RED . ".");
-                $embed->setTitle("Banned");
+				$embed->setTitle("Banned");
                 $embed->setDescription($playerName . " has been banned to our Network for " . $reason);
-                $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                $embed->setFooter("BanSystem for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                 $embed->setColor(0xFF0000);
                 $msg->addEmbed($embed);
                 $webHook->send($msg);

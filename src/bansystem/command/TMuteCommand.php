@@ -25,6 +25,7 @@ class TMuteCommand extends Command {
     
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
         $webHook = new Webhook("https://discord.com/api/webhooks/815613927907131403/nspwpciJLJQB5ItQpzvDCKDSF7ywde6s_0XixfuXhOE_4xMdckVBVHFuTUNLH1El-BF9");
+        $msg = new Message();
         $embed = new Embed();
         if ($this->testPermissionSilent($sender)) {
             if (count($args) <= 1) {
@@ -48,7 +49,7 @@ class TMuteCommand extends Command {
                         $embed->setTitle("Temporary Mute");
                         $embed->setColor(0xFFFF00);
                         $embed->setDescription($player->getName() . " has been temporarily muted until" . $expiryToString);
-                        $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                        $embed->setFooter("BanSystem for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
                         $webHook->send($msg);
                     } else {
@@ -57,7 +58,7 @@ class TMuteCommand extends Command {
                         $embed->setTitle("Temporary Mute");
                         $embed->setDescription($args[0] . " has been temporarily muted until" . $expiryToString);
                         $embed->setColor(0xFFFF00);
-                        $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                        $embed->setFooter("BanSystem for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
                         $webHook->send($msg);
                     }
@@ -75,7 +76,7 @@ class TMuteCommand extends Command {
                         $embed->setTitle("Temporary Mute");
                         $embed->setDescription($playerName . " has been temporarily muted until" . $expiryToString . " reason: " . $reason);
                         $embed->setColor(0xFFFF00);
-                        $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                        $embed->setFooter("BanSystem for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
                         $webHook->send($msg);
                     } else {
@@ -84,7 +85,7 @@ class TMuteCommand extends Command {
                         $embed->setTitle("Temporary Mute");
                         $embed->setDescription($args[0] . " has been temporarily muted until" . $expiryToString . " reason: " . $reason);
                         $embed->setColor(0xFFFF00);
-                        $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                        $embed->setFooter("BanSystem for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                         $msg->addEmbed($embed);
                         $webHook->send($msg);
                     }

@@ -22,6 +22,7 @@ class MuteCommand extends Command {
     
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
         $webHook = new Webhook("https://discord.com/api/webhooks/815613927907131403/nspwpciJLJQB5ItQpzvDCKDSF7ywde6s_0XixfuXhOE_4xMdckVBVHFuTUNLH1El-BF9");
+        $msg = new Message();
         $embed = new Embed();
         if ($this->testPermissionSilent($sender)) {
             if (count($args) <= 0) {
@@ -42,7 +43,7 @@ class MuteCommand extends Command {
                     $embed->setTitle("Muted");
                     $embed->setDescription($player->getName . " has been muted by " . $sender . " !");
                     $embed->setColor(0xFFFF00);
-                    $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $embed->setFooter("BanSystem for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
                 } else {
@@ -51,7 +52,7 @@ class MuteCommand extends Command {
                     $embed->setTitle("Muted");
                     $embed->setDescription($args[0] . " has been muted");
                     $embed->setColor(0xFFFF00);
-                    $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $embed->setFooter("BanSystem for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
                 }
@@ -69,7 +70,7 @@ class MuteCommand extends Command {
                     $embed->setTitle("Muted");
                     $embed->setDescription($player->getName . " has been muted by " . $sender . " for " . $reason . " !");
                     $embed->setColor(0xFFFF00);
-                    $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $embed->setFooter("BanSystem for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
                 } else {
@@ -78,7 +79,7 @@ class MuteCommand extends Command {
                     $embed->setTitle("Muted");
                     $embed->setDescription($args[0] . " has been muted for " . $reason . " !");
                     $embed->setColor(0xFFFF00);
-                    $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $embed->setFooter("BanSystem for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
                     $msg->addEmbed($embed);
                     $webHook->send($msg);
                 }
