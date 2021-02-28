@@ -17,6 +17,8 @@ class BanIPCommand extends Command {
     }
     
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
+        $webHook = new Webhook("YOUR WEBHOOK URL");
+        $embed = new Embed();
         if ($this->testPermissionSilent($sender)) {
             if (count($args) <= 0) {
                 $sender->sendMessage(Translation::translateParams("usage", array($this)));
@@ -38,11 +40,22 @@ class BanIPCommand extends Command {
                         }
                     }
                     $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP banned from our network\n§4Banned by: §bStaff\n§5with no reason.");
+                    $embed->setTitle("IP Banned");
+                    $embed->setDescription($ip . " has been  IP banned to our Network!");
+                    $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $msg->addEmbed($embed);
+                    $webHook->send($msg);
                 } else {
                     if ($player != null) {
                         $banList->addBan($player->getAddress(), null, null, $sender->getName());
                         $player->kick(TextFormat::RED . "You have been IP banned from our network\n§4Banned by: §bStaff\n§5with no reason.", false);
                         $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP banned from our network\n§4Banned by: §bStaff\n§5with no reason.");
+                        $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP banned from our network\n§4Banned by: §bStaff\n§5with no reason.");
+                        $embed->setTitle("IP Banned");
+                        $embed->setDescription($player->getName() . " has been  IP banned to our Network!");
+                        $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                        $msg->addEmbed($embed);
+                        $webHook->send($msg);
                     } else {
                         $sender->sendMessage(Translation::translate("playerNotFound"));
                     }
@@ -62,11 +75,21 @@ class BanIPCommand extends Command {
                         }
                     }
                     $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP banned from our network\n§4Banned by: §bStaff\n§5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $embed->setTitle("IP Banned");
+                    $embed->setDescription($ip . " has been  IP banned to our Network!");
+                    $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $msg->addEmbed($embed);
+                    $webHook->send($msg);
                 } else {
                     if ($player != null) {
                         $banList->addBan($player->getAddress(), $reason, null, $sender->getName());
                         $player->kick(TextFormat::RED . "You have been IP banned from §4PMnS §eNetwork! §5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".", false);
                         $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP banned from our network\n§4Banned by: §bStaff\n§5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");  
+                    $embed->setTitle("IP Banned");
+                    $embed->setDescription($player->getName() . " has been  IP banned to our Network!");
+                    $embed->setFooter("AdvancedBan for PMnS","https://cdn.discordapp.com/attachments/784812448535674889/815586272180830248/pmnsoldlogo.jpg");
+                    $msg->addEmbed($embed);
+                    $webHook->send($msg);
                     } else {
                         $sender->sendMessage(Translation::translate("playerNotFound"));
                     }
